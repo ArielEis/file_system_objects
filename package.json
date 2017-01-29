@@ -1,0 +1,24 @@
+{
+  "name": "file_system_object",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node fileSystem.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArielEis/file_system_objects.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArielEis/file_system_objects/issues"
+  },
+  "homepage": "https://github.com/ArielEis/file_system_objects#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "readline-sync": "^1.4.5"
+  }
+}
