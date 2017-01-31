@@ -719,7 +719,7 @@ function deleteFile(fileName, object) {
         if (!isFolder(fileName, currentFolder)) {
             removeFile(fileName, currentFolder);
         } else {
-            console.log(object.colors.bgRed("Error:") + " \'" + fileName + "\' is not a file");
+            console.log(object.colors.bgRed("Error:") + " \'" + fileName + "\' is not a file\n");
         }
     } else {
         console.log(object.colors.bgRed("Error:") + " \'" + fileName + "\' isn\'t exist\n");
