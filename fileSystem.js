@@ -1169,14 +1169,12 @@ function convertFromLinearArrayToGraph(array, object){
         var tempFile = null;
         for (var i=1; i<array.length; i++){
             tempFile = findFileByID(object.root, array[i]._parent);
-            var father = findFatherFolderByID(object.root, array[i]._id);
-            if(!isFileExist(array[i]._fileName, father)){
-                if (array[i]._type === 'directory'){
-                    addFolderChildToFile(tempFile, array[i]._fileName, object);
-                } else {
-                    addFileChildToFile(tempFile, array[i]._fileName, array[i]._type, array[i]._content, object);
-                }
+            if (array[i]._type === 'directory'){
+                addFolderChildToFile(tempFile, array[i]._fileName, object);
+            } else {
+                addFileChildToFile(tempFile, array[i]._fileName, array[i]._type, array[i]._content, object);
             }
+
         }
         object.id = array[array.length-1]._id + 1;
    }
@@ -1196,7 +1194,14 @@ function removeDuplicate(array){
 
 
 function insertSystemToArray(file, linearArray, object){
-    linearArray.push(file);
+    linearArray.push({
+        _fileName: file._fileName,
+        _id: file._id,
+        _type: file._type,
+        _content: file._content,
+        _parent:  file._parent,
+        _childrens: []
+    });
     for (var i=0; i<file._childrens.length; i++){
         insertSystemToArray(file._childrens[i], linearArray, object);
     }
